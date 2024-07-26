@@ -40,10 +40,6 @@ export default function SharedTxt({txtType, className, txt}: ISharedTxtProps) {
     case "span":
       return <span className={`${className} text-white`}>{txt}</span>;
     case "small":
-      return (
-        <small className={`${className} text-white font-light text-sm`}>
-          {txt}
-        </small>
-      );
+      return <small className={`${className} font-light text-sm`}>{txt}</small>;
   }
 }

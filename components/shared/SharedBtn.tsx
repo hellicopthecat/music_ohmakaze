@@ -1,28 +1,16 @@
-import {FormEventHandler, MouseEventHandler} from "react";
+import {ButtonHTMLAttributes} from "react";
 
 interface ISharedBtnProps {
   className?: string;
-  type: HTMLButtonElement["type"];
-  disabled?: boolean;
   btnTxt: string;
-  onSumbit?: FormEventHandler | undefined;
-  onClick?: MouseEventHandler | undefined;
 }
 export default function SharedBtn({
   className,
-  type,
-  disabled = false,
   btnTxt,
-  onSumbit,
-  onClick,
-}: ISharedBtnProps) {
+}: ISharedBtnProps & ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
     <button
-      className={`bg-slate-500 disabled:bg-gray-300 text-white w-52 h-8 rounded-md shadow-md ${className}`}
-      type={type}
-      disabled={disabled}
-      onSubmit={onSumbit}
-      onClick={onClick}
+      className={`bg-orange-500 disabled:bg-gray-300 text-white w-52 h-8 rounded-md shadow-md ${className}`}
     >
       {btnTxt}
     </button>

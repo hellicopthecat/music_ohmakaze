@@ -1,29 +1,41 @@
+import SharedInput from "@/components/shared/SharedInput";
 import SharedTxt from "@/components/shared/SharedTxt";
 
 interface ILoginInputProps {
   labelTxt: string;
   name: string;
-  inputType: HTMLInputElement["type"];
-  placeHolder: string;
+  type: HTMLInputElement["type"];
+  placeholder: string;
+  className?: string;
   errorTxt: Array<string>;
+  min?: number;
+  max?: number;
+  required?: boolean;
 }
-export default function LoginInput({
+export default function BeforeLoginInput({
   labelTxt,
   name,
-  inputType = "text",
-  placeHolder,
+  type,
+  placeholder,
+  className,
   errorTxt,
+  min,
+  max,
+  required = false,
 }: ILoginInputProps) {
   return (
     <div className="flex flex-col gap-2">
       <label htmlFor={name} className="text-white">
         {labelTxt}
       </label>
-      <input
+      <SharedInput
         name={name}
-        type={inputType}
-        placeholder={placeHolder}
-        className="px-2 py-1 rounded-md shadow-sm"
+        type={type}
+        placeholder={placeholder}
+        className={className}
+        min={min}
+        max={max}
+        required={required}
       />
       {errorTxt &&
         errorTxt.map((txt, index) => (
